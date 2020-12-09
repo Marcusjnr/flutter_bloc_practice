@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 @immutable
 abstract class HomeEvent extends Equatable{
+  HomeEvent([List props = const []]) : super();
 }
 
 class HomeChangedButtonPressed extends HomeEvent{
@@ -15,4 +16,15 @@ class HomeChangedButtonPressed extends HomeEvent{
 
   @override
   String toString() => 'Changing Text';
+}
+
+class HomeProgressBarButtonPressed extends HomeEvent{
+   final bool showIsLoading;
+
+  HomeProgressBarButtonPressed(this.showIsLoading);
+
+  @override
+  List<Object> get props => [showIsLoading];
+
+
 }

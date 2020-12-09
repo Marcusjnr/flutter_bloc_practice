@@ -19,19 +19,46 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   state.changeHomeText,
-
                 ),
 
-                MaterialButton(
-                    color: Colors.red,
-                    textColor: Colors.white,
-                    child: Text('Click me'),
-                    onPressed: (){
-                      BlocProvider.of<HomeBloc>(context).add(
-                        HomeChangedButtonPressed('what is up')
-                      );
-                    }
-                )
+                Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MaterialButton(
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          child: Text('Click me'),
+                          onPressed: (){
+                            BlocProvider.of<HomeBloc>(context).add(
+                                HomeChangedButtonPressed('what is up')
+                            );
+                          }
+                      ),
+
+                      SizedBox(width: 10,),
+
+                      MaterialButton(
+                          color: Colors.red,
+                          textColor: Colors.white,
+                          child: Text('Click me second'),
+                          onPressed: (){
+                            BlocProvider.of<HomeBloc>(context).add(
+                                HomeProgressBarButtonPressed(true)
+                            );
+                          }
+                      ),
+                    ],
+                  ),
+                ),
+
+                state.isLoading
+                ?
+                CircularProgressIndicator()
+                :
+                Container()
               ],
             ),
           );
