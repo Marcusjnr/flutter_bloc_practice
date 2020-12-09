@@ -4,7 +4,7 @@ import 'package:flutter_bloc_practice/app/bloc/home_bloc/home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState>{
 
-  HomeBloc() : super(null);
+  HomeBloc() : super(HomeState.textChange('initial'));
   @override
   Stream<HomeState> mapEventToState(HomeEvent event) async*{
     final HomeState currentState = state;
